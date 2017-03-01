@@ -476,6 +476,7 @@ module.exports = function(io, socket) {
 
             //search the DB for username
         UserInfo.findOne({ username: usrname }, function(err, reply) {
+            if(reply!=null){
             console.log(reply.gitChannelStatus,reply.repos,"Login Event");
             gitChannelStatus=reply.gitChannelStatus;
             currentChannelName=reply.currentChannel;
@@ -526,6 +527,7 @@ module.exports = function(io, socket) {
                 //console.log("Login",avatars);
                 
             });
+        }
           });
 
          })
